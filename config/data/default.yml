@@ -1,0 +1,7 @@
+login:
+  email: <%= ENV['HUDL_EMAIL'] %>
+  password: <%=ENV['HUDL_PASSWORD'] %>
+
+incorrect_login:
+  email: notanemail
+  password: incorrectpass
