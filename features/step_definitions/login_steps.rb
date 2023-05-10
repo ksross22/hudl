@@ -15,11 +15,11 @@ end
 And(/^I "([^"]*)" the remember me checkbox$/) do |option|
   if option == "check"
     on_page(LoginPage).remember_me_element.fire_event('onClick')
-    fail "Error: The remember me checkbox is not checked" unless on_page(LoginPage).remember_me_checked?  
+    fail "Error: The remember me checkbox is not checked" unless on_page(LoginPage).remember_me_checked?
   else
-    fail "Error: The remember me checkbox is not checked" if on_page(LoginPage).remember_me_checked?    
+    fail "Error: The remember me checkbox is not checked" if on_page(LoginPage).remember_me_checked?
   end
-    ## would like to get more details on how `remember me` works to create additional testing scenarios  
+  ## would like to get more details on how `remember me` works to create additional testing scenarios
 end
 
 Then(/^I should have access to the Hudl web application$/) do

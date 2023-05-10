@@ -1,6 +1,6 @@
 require 'page-object'
 
-## This is a module to add data_qa_id as a custom selector 
+## This is a module to add data_qa_id as a custom selector
 module PageObject
   module Elements
     class DataQAId < PageObject::Elements::Element

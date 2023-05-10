@@ -1,18 +1,18 @@
 require_relative '../helper/data_qa_id'
 
 class LoginPage
-  #Using libraries
+  # Using libraries
   include PageObject
   include DataMagic
 
-  #starting URL
+  # starting URL
   page_url("https://www.hudl.com/login")
 
-  #page object web elements 
+  # page object web elements
   link(:login_selector, :id => 'login-select')
   link(:main_logo, :data_qa_id => "site-logo")
 
-  #login page elements
+  # login page elements
   element(:logo, :data_qa_id => "hudl-logo")
   text_field(:email, :id => 'email')
   label(:email_label, :data_qa_id => "email-input-label")
@@ -25,12 +25,12 @@ class LoginPage
   link(:sign_up_link, :href => "/register/signup")
   link(:need_help_link, :data_qa_id => "need-help-link")
 
-  #login organization elements
+  # login organization elements
   h2(:org_login_header, :text => "Log into Hudl with your Organization")
   text_field(:org_email, :class => "uni-input")
   button(:org_go_back, :data_qa_id => "go-back")
 
-  #login error elements
+  # login error elements
   paragraph(:error_display, :css => "[data-qa-id='error-display']")
   link(:need_help_error_link, :xpath => "//p[@data-qa-id='error-display']//a[contains(text(),'Need help')]")
   h2(:login_help_header, :data_qa_id => "login-help-headline")
@@ -38,18 +38,17 @@ class LoginPage
   text_field(:password_reset_field, :data_qa_id => "password-reset-input")
   button(:password_reset_button, :data_qa_id => "password-reset-submit-btn")
 
-  #logged in elements
+  # logged in elements
   link(:home_nav, :data_qa_id => "webnav-globalnav-home")
   link(:explore_nav, :data_qa_id => "webnav-globalnav-explore")
 
-  #signup page elements
+  # signup page elements
   link(:request_demo_button, :id => "register_demo")
-  
 
   def enter_login_credentials(option)
     DataMagic.yml_directory = './config/data'
     DataMagic.load 'default.yml'
-    
+
     if option == "incorrect"
       login_data = data_for :incorrect_login
     else
@@ -96,5 +95,4 @@ class LoginPage
   def validate_url(url)
     fail "Error: The user is currently at #{@browser.current_url} which is not the expected URL: #{url}" unless @browser.current_url == url
   end
-
 end
