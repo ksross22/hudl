@@ -10,7 +10,7 @@ From the hudl folder, you should be able to bundle install all of the needed gem
 
       bundle install
 
-Within the `cucumber/data/default.yml`, you can update the email/password fields for correct logins or you can add them as environment variables 
+Within the `config/data/default.yml`, you can update the email/password fields for correct logins or you can add them as environment variables 
 
       export HUDL_EMAIL="<your email>"
       export HUDL_PASSWORD="<your password>"
